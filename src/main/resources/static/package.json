@@ -1,0 +1,38 @@
+{
+  "name": "fast-route",
+  "version": "1.0.0",
+  "description": "Aplicação Web de Teste para a Trixlog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KaynanCoelho/fast-route.git"
+  },
+  "keywords": [
+    "Java",
+    "Angular",
+    "Spring",
+    "Boot",
+    "Spring",
+    "Security",
+    "Jasmine",
+    "JUnit"
+  ],
+  "author": "Kaynan Coelho Lira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KaynanCoelho/fast-route/issues"
+  },
+  "homepage": "https://github.com/KaynanCoelho/fast-route#readme",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-router": "^0.4.2",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "leaflet": "^1.0.2",
+    "tiny-leaflet-directive": "^0.1.0"
+  }
+}

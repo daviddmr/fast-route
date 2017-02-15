@@ -1,0 +1,111 @@
+<div role="inputs" class="col-md-4 new-route" center-block>
+    <form class="form-signin" name="form_new_route">
+
+        <div class="control-group">
+            <label class="control-label" for="address">Endereço</label>
+            <div class="controls">
+                <input type="text" id="address" class="form-control" class="input-xlarge" required autofocus
+                       ng-model="address">
+                <p class="help-block">Por favor, digite um endereço</p>
+            </div>
+        </div>
+
+        <div class="control-group btn-search">
+            <div class="controls">
+                <button ng-click="findRouteByAddress()"
+                        class="btn btn-lg btn-primary btn-block"
+                        ng-disabled="form_new_route.$invalid"
+                        type="submit">Buscar
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div id="loading" class="loader center-block" ng-if="isLoading"></div>
+
+    <div class="panel panel-default center-block" ng-if="isVisible">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title text-center" style="padding-top: 7.5px;">Endereço</h4>
+            <div class="btn-group pull-right">
+                <a href="" ng-click="confirm()" class="btn btn-success btn-sm">Adicionar</a>
+            </div>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">Nome: {{coordinate.formatedName}}</li>
+            <li class="list-group-item">Latitude: {{coordinate.lat}}</li>
+            <li class="list-group-item">Longitude: {{coordinate.lng}}</li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default center-block" ng-if="coordinates.length>0">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title text-center" style="padding-top: 7.5px;">Endereços</h4>
+        </div>
+        <ul class="list-group" ng-repeat="c in coordinates">
+            <li class="list-group-item justify-content-between">
+                {{c.formatedName}}
+                <a href="" class="glyphicon glyphicon-remove" ng-click="removeCoordinate($index)"></a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel panel-default center-block" ng-if="coordinates.length>1">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title text-center" style="padding-top: 7.5px;">Clique para buscar a melhor rota!</h4>
+            <div class="control-group btn-search">
+                <div class="controls">
+                    <button ng-click="searchRoute()"
+                            class="btn btn-lg btn-primary btn-block"
+                            ng-disabled="form_new_route.$invalid"
+                            type="submit">Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-route" class="loader center-block" ng-if="isLoadingRoute"></div>
+
+    <div class="panel panel-default center-block" ng-if="responseCoordinates.length>1">
+        <div class="panel-heading clearfix">
+            <h4 class="panel-title text-center" style="padding-top: 7.5px;">Cadastrar Rota</h4>
+
+            <div class="control-group">
+                <label class="control-label" for="route.name">Nome da Rota</label>
+                <div class="controls">
+                    <input type="text" id="route.name" class="form-control" class="input-xlarge" required autofocus
+                           ng-model="route.name">
+                    <p class="help-block">Por favor, digite o nome da rota.</p>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="vehicle.name">Nome do Veículo</label>
+                <div class="controls">
+                    <input type="text" id="vehicle.name" class="form-control" class="input-xlarge" required autofocus
+                           ng-model="vehicle.name">
+                    <p class="help-block">Por favor, digite o nome do veículo.</p>
+                </div>
+            </div>
+
+
+            <div class="control-group btn-search">
+                <div class="controls">
+                    <button ng-click="saveRoute()"
+                            class="btn btn-lg btn-primary btn-block"
+                            type="submit">Cadastrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading-route-register" class="loader center-block" ng-if="isLoadingRouteRegister"></div>
+    <div class="alert alert-danger" style="padding-top: 20px;" ng-show="error">
+        <span class="label-error">Erro ao registrar rota.</span>
+    </div>
+
+
+</div>
+<div id="mapid" class="col-md-8 map-route">
+</div>

@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading clearfix">
+        <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Rotas</h4>
+        <div class="btn-group pull-right">
+            <a href="" ng-click="newRoute()" class="btn btn-success btn-sm">Nova Rota</a>
+        </div>
+    </div>
+    <!-- Table -->
+    <table class="table" ng-if="routes.length>0">
+        <tr>
+            <th>Nome</th>
+            <th>Veículo</th>
+            <th>Visualizar</th>
+        </tr>
+        <tr ng-repeat="route in routes">
+            <td>{{route.name}}</td>
+            <td>{{route.vehicle.name}}</td>
+            <td>
+                <button type="button" class="btn btn-primary glyphicon glyphicon-eye-open" data-toggle="button"
+                        aria-pressed="false" autocomplete="off" ng-click="viewRoute(route)">
+                </button>
+            </td>
+        </tr>
+    </table>
+    <div id="mapid" class="map-route"></div>
+</div>
